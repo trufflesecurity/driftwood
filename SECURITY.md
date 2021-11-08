@@ -1,0 +1,1 @@
+Please report any security issues to security@trufflesec.com and include `driftwood` in the subject
