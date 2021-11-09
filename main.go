@@ -31,6 +31,9 @@ func main() {
 			&cli.BoolFlag{
 				Name: "debug",
 			},
+			&cli.BoolFlag{
+				Name: "public-key",
+			},
 		},
 		Action: func(c *cli.Context) error {
 			args := c.Args().Slice()
@@ -58,7 +61,7 @@ func main() {
 
 			file := args[0]
 
-			var privateKey []byte
+			var inKey []byte
 			var err error
 			if file == "-" {
 				buff := bytes.NewBuffer(nil)
@@ -66,19 +69,25 @@ func main() {
 				for scanner.Scan() {
 					buff.WriteString(scanner.Text() + "\n")
 				}
-				privateKey = buff.Bytes()
+				inKey = buff.Bytes()
 			} else {
-				privateKey, err = ioutil.ReadFile(args[0])
+				inKey, err = ioutil.ReadFile(args[0])
 				if err != nil {
 					logger.Fatalf("File cannot be read: %s", err)
 					return nil
 				}
 			}
 
-			publicKey, err := parser.PublicKey(privateKey)
-			if err != nil {
-				logger.Fatalf("Error computing public key: %s", err)
+			var publicKey []byte
+			if ! c.Bool("public-key") {
+				publicKey, err = parser.PublicKey(inKey)
+				if err != nil {
+					logger.Fatalf("Error computing public key: %s", err)
+				}
+			} else {
+				publicKey = inKey
 			}
+
 			result, err := client.Lookup(version, publicKey)
 			if err != nil {
 				logger.Fatalf("Error looking up public key: %s", err)
