@@ -9,6 +9,8 @@ Driftwood is a tool that can enable you to lookup whether a private key is used 
 
 Driftwood performs lookups with the computed public key, so the private key never leaves where you run the tool. Additionally it supports some basic password cracking for encrypted keys.
 
+You can read more on it [here](https://trufflesecurity.com/blog/driftwood-know-if-private-keys-are-sensitive/)
+
 ![Driftwood in action](docs/screenshot.png)
 
 ## Installation
