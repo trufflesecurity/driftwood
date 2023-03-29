@@ -6,7 +6,7 @@ require (
 	github.com/mitchellh/mapstructure v1.4.2
 	github.com/sirupsen/logrus v1.8.1
 	github.com/urfave/cli/v2 v2.3.0
-	golang.org/x/crypto v0.0.0-20210921155107-089bfa567519
+	golang.org/x/crypto v0.1.0
 )
 
 require (
