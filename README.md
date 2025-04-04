@@ -1,5 +1,7 @@
 # Driftwood
 
+## ⚠️ The Driftwood CLI tool is no longer supported. Please use [TruffleHog](https://github.com/trufflesecurity/trufflehog) instead! ⚠️
+
 [![CI Status](https://github.com/trufflesecurity/driftwood/workflows/release/badge.svg)](https://github.com/trufflesecurity/driftwood/actions)
 [![Go Report Card](https://goreportcard.com/badge/github.com/trufflesecurity/driftwood)](https://goreportcard.com/report/github.com/trufflesecurity/driftwood)
 [![Docker Hub Build Status](https://img.shields.io/docker/cloud/build/trufflesecurity/driftwood.svg)](https://hub.docker.com/r/trufflesecurity/driftwood/)
